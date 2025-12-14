@@ -1,0 +1,63 @@
+/* Dynamic Gradient Background - BLUE THEME */
+body {
+  /* Dark Blue -> Royal Blue -> Sky Blue -> Loop */
+  background: linear-gradient(-45deg, #0f172a, #1e40af, #38bdf8, #0f172a);
+  background-size: 300% 300%;
+  animation: gradient-xy 15s ease infinite;
+}
+
+@keyframes gradient-xy {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* Glassmorphism Utilities */
+.glass-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-modal {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(16px);
+}
+
+/* Portal Link Styling */
+.portal-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  background-color: #4f46e5; /* indigo-600 */
+  color: white;
+  font-weight: 600;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: all 300ms;
+  transform: scale(1);
+}
+
+.portal-link:hover {
+  background-color: #4338ca; /* indigo-700 */
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transform: scale(1.05);
+}
+
+/* Modern Spinner */
+.spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid rgba(79, 70, 229, 0.2);
+  border-bottom-color: #4f46e5;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+

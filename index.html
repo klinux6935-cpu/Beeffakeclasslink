@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ClassLink</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="https://cdn.prod.website-files.com/5d6db64572061db9c481aaeb/60182c792aab73bd41f28d27_classlink-logo-vertical.png">
+  
+  <!-- 1. Link to External CSS -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- 2. Tailwind CSS (Library) -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- 3. Tailwind Configuration (External JS) -->
+  <script src="tailwind_config.js"></script>
+  
+  <!-- Inter Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Google Gemini Import Map (Required for browser modules) -->
+  <script type="importmap">
+    {
+      "imports": {
+        "@google/generative-ai": "https://esm.run/@google/generative-ai"
+      }
+    }
+  </script>
+</head>
+
+<body class="font-sans text-gray-900 min-h-screen flex flex-col">
+
+  <!-- Main Content Area -->
+  <main class="flex-grow flex items-center justify-center p-4">
+    <div class="glass-card w-full max-w-md p-8 rounded-2xl shadow-2xl animate-fade-in-up">
+      
+      <!-- Logo -->
+      <img class="h-16 w-auto mx-auto transition-transform duration-300 hover:scale-110" src="https://cdn.prod.website-files.com/5d6db64572061db9c481aaeb/60182c792aab73bd41f28d27_classlink-logo-vertical.png" alt="ClassLink Logo">
+      
+      <!-- Slogan -->
+      <p class="text-center text-gray-600 mt-2 font-medium">Powering STEM Classrooms Across The US</p>
+      
+      <h1 class="text-3xl font-bold text-center text-indigo-700 mt-6 tracking-tight">
+        Find Your Classroom
+      </h1>
+      
+      <h4 class="text-xs font-bold text-gray-400 text-center mt-6 uppercase tracking-widest">
+        Enter Class Code
+      </h4>
+
+      <!-- Input Form -->
+      <div class="mt-4 relative group">
+        <input type="text" id="text" required class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/20 transition-all duration-300 bg-white/50 backdrop-blur-sm placeholder-gray-400" placeholder="">
+      </div>
+      
+      <div class="text-center text-xs text-gray-500 mt-2">
+        <p>Supports codes or natural language search.</p>
+      </div>
+
+      <!-- Button -->
+      <div class="mt-6">
+        <button id="find-class-btn" class="w-full bg-gradient-to-r from-blue-600 to-blue-600 text-white py-3.5 rounded-xl font-bold shadow-lg hover:shadow-xl hover:scale-[1.02] active:scale-95 transition-all duration-200">
+          Find Class
+        </button>
+      </div>
+
+      <!-- Help Text -->
+      <div class="text-center text-sm text-gray-500 mt-8">
+        <p>Type <span class="font-bold text-indigo-600">"help"</span> in the text bar for assistance.</p>
+      </div>
+      
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center p-4 text-white/80 text-sm mt-8 font-medium tracking-wide">
+    <p>&copy; 2025 ClassLink. All rights reserved.</p>
+    <p class="text-xs opacity-75">Version: 7.0 (AI Enabled)</p>
+  </footer>
+
+  <!-- Modal HTML -->
+  <div id="portal-overlay" class="fixed inset-0 bg-black/40 backdrop-blur-sm z-50 flex items-center justify-center p-4 transition-opacity duration-300" style="display:none;">
+    <div id="portal-modal" class="glass-modal w-full max-w-5xl h-[85vh] rounded-2xl shadow-2xl flex flex-col animate-pop transform origin-center">
+      
+      <!-- Modal Header -->
+      <div id="portal-header" class="flex justify-between items-center border-b border-gray-200/50 p-5">
+        <h2 id="portal-title" class="text-xl font-bold text-indigo-700 flex items-center gap-2">
+          <span>Loading...</span>
+        </h2>
+        <button id="portal-close-btn" class="text-gray-400 hover:text-red-500 transition-colors text-3xl leading-none">&times;</button>
+      </div>
+      
+      <!-- Modal Content -->
+      <div id="portal-content" class="flex-grow p-0 overflow-hidden relative rounded-b-2xl">
+        
+        <div class="p-8 overflow-y-auto h-full" id="message-container" style="display:none;">
+           <p id="portal-message" class="text-lg text-gray-800 leading-relaxed"></p>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div id="portal-loading" class="absolute inset-0 flex flex-col items-center justify-center bg-white/80 backdrop-blur-sm z-10" style="display: none;">
+          <div class="spinner mb-4"></div>
+          <p class="text-lg font-medium text-indigo-600 animate-pulse">Searching the universe...</p>
+        </div>
+
+        <iframe id="portal-frame" src="about:blank" class="w-full h-full border-0" style="display:none;"></iframe>
+      </div>
+      
+    </div>
+  </div>
+
+  <!-- 4. Link to External Logic Script -->
+  <script type="module" src="script.js"></script>
+</body>
+</html>
+
+
